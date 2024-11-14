@@ -1,0 +1,48 @@
+ spec:
+       podSelector: {}
+       ingress:
+         - from:
+             - namespaceSelector:
+                 matchLabels:
+                   name: myapp-namespace
+     ```
+
+---
+
+### 21. **OpenShift Performance Tuning**
+
+Optimizing resource usage and ensuring high-performance applications are essential in production environments.
+
+#### 21.1 **Horizontal Pod Autoscaling (HPA)**
+   - **Definition**: Automatically scale the number of Pods in a deployment based on CPU or memory usage.
+   - **Example**:
+     ```bash
+     oc autoscale deployment myapp --cpu-percent=80 --min=1 --max=5
+     ```
+
+#### 21.2 **Vertical Pod Autoscaling (VPA)**
+   - **Definition**: Automatically adjust the resource requests and limits for Pods based on usage.
+   - **Enable VPA**:
+     ```bash
+     oc apply -f vpa.yaml
+     ```
+
+---
+
+### 22. **Cluster Upgrades**
+
+OpenShift supports rolling upgrades to ensure minimal downtime when upgrading the platform or your applications.
+
+#### 22.1 **Upgrading OpenShift Cluster**
+   - **Automatic Upgrades**: You can configure OpenShift to automatically check and apply updates.
+   - **Manual Upgrade**:
+     ```bash
+     oc adm upgrade --to=4.8.0
+     ```
+
+#### 22.2 **Upgrading Applications**
+   - **Deployment Configs** and **Operators** manage the upgrade process for your applications.
+
+---
+
+These advanced OpenShift topics give you a robust understanding of managing, securing, scaling, and upgrading your applications and infrastructure in a containerized, multi-cluster OpenShift environment. With these tools, you can handle everything from persistent storage to high availability, network security, and performance optimization across clusters.
